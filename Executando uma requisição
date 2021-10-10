@@ -1,0 +1,37 @@
+Os arquivos que estão nesta pasta estão ligados uns aos outros por links, ou seja dou um clique em um link(requisição), vem a pagina correspondente(resposta) ou seja uma dinamica sincrona.
+
+COMO VAI FUNCIONAR
+
+Atualmente os links estão chamanddo paginas inteiras agora vou usar so uma pagina e a reposta das requisções vao ser os conteudos.
+
+1 - criar o arquivo requisicoes_assincronas.html
+2 - copiar o conteudo da pagina 1 e coloar dentro dele.
+3 - mudar o titulo para rquisições assincronas
+4 - apaguei a area e conteudo que tinha no codigo da apagina que copiei
+5 - para ter certeza de que não vou fazer nenhuma requisição sincrona todos os caminhos ods links presentes no codigo  foram trocados por #.
+6 - Dentro da tag head criei uma div script e nela o objeto do tipo  XMLHttpRequest();
+
+codigo da requisição
+
+  let ajax = new XMLHttpRequest();
+
+			/*O metodo open recebe o metodo usado na resuisição e a url requisitada*/
+
+			ajax.open('GET','pagina_1_conteudo.html');
+
+			/*O send envia a solicitação*/
+
+			ajax.send();
+
+			// aqui eu mostro os dados requisiçao no console
+
+			console.log(ajax);
+
+
+isso faz a requisição assim que entra na pagina mas vou coloca dentro dde um função que vai recer a url como parametro para especificar oque eu quero requisitar. 
+
+
+
+
+
+

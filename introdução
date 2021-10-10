@@ -28,7 +28,7 @@ esses são os mais famosos.
 
 exemplo de codigo:
 
-let req = new XMLHTTPRequest();s
+let req = new XMLHttpRequest();
 
 
 
