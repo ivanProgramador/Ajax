@@ -1,0 +1,35 @@
+Ajax é um meio de fazer requisições assincronas para um servidor
+
+Uma requisição sincrona envolve request response.
+
+requisição
+   pede alguma informação ao servidor pagina web,dados de uma consulta....
+
+resposta
+   Entrega oque foi solicitado
+
+ou seja um pedido, uma resposta é um jeito limitado de fazer as coisas, porem um servidor recebe varias 
+requisições ao mesmo tempo e se ele esperar um processo terminar para iniciar o outro a resposa seria muito
+lenta, as requisições assincronas fazem com que varios processos mesmo que em partes sejam executados ao mesmo
+tempo neste caso ele não precisa esperar que a reposta do primeiro termine pra iniciar o segundo,terceiro ou quarto processo.
+
+O acronimo Ajax singnifica Asynchronous Javascript and XML em português Javascript e xml assincrono, mas é muito
+importante saber separar as coisas embora dentro do mesmo acronimo Javascript e XML são tecnologias totalmente diferentes, emquanto js é uma linguagem de programação, xml é uma forma de notação que pode ser comparada com Json.
+
+O uso dessa metodologia e feita js como ajuda da api do DOM existe um especie de Classe GLOBAL chamada XMLHTTPRequest e deve ser criado um objeto com base nela  e este objeto vai herdar toas funções que ela tem
+mas não e só isso essa classe tem entro dela o metodos que cuidam a sua requisição se você fizer 30 requisições 
+essa classe matem a comunicação com o DOM para que todas elas sejam respondidas,trata-se e uma classe pre-existente.
+
+Alguns framewors que usam esse tipo de metodo de reuisição para criar SPA´S Single page aplications que são paginas dinamicas que não precisam dar refresh o tempo todo.
+
+Angular, Vue.js, React.js ..... 
+
+esses são os mais famosos. 
+
+exemplo de codigo:
+
+let req = new XMLHTTPRequest();s
+
+
+
+
