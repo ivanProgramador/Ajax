@@ -1,0 +1,43 @@
+Uma requisição feita a um servidor tem 5 estados
+
+1 - request no initialized(requisição não iniciada)
+   
+    Neste codigo eu crio um objeto da classe XMLHttpRequest() porem eu chmado so um metodo que serve
+    para mostrar os estado da requisição e como nenhum requisição foi feita seu estado é 0. que significa que ela nem foi iniciada.o numero 0 vai aparecer no console do navegador.
+
+    function requisitarPagina(url){
+
+			let ajax = new XMLHttpRequest();
+
+			console.log(ajax.readyState)
+	}
+
+
+
+2 - server connection instabilished(conexão estabelecida com o servidor)
+
+    Neste codigo além de criar um objeto da classe  XMLHttpRequest() eu chamo a função open()
+    e instancio os dois parametros pra dar um get em uma url que vem atráves de um parametro da função
+    ja que ela eiste dentro do servidor e pode ser aberta a coneao foi estabelecida com sucesso ebtao oretrono
+    no console será 1.
+
+
+ function requisitarPagina(url){
+
+			let ajax = new XMLHttpRequest();
+
+			ajax.open('GET',url)
+
+			console.log(ajax.readyState)
+	}
+   
+
+
+
+
+
+
+3 - request received(requisição recebida)
+4 - processing request(Processando requisição)
+5 - request finished and is response ready(requisição finalizada)
+
