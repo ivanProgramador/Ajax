@@ -13,6 +13,16 @@
            
           function requisitarPagina(url){
 
+
+
+          	// incluindo um aruivo de loading na pagina
+
+          	let imgLoading = document.createElement('img');
+          	imgLoading.src = 'loading.gif';
+          	imgLoading.className = 'rounded mx-auto d-block '
+
+
+
 			let ajax = new XMLHttpRequest();
 
 			
@@ -23,9 +33,17 @@
 
 			console.log(ajax.readyState)
 
+			// essa função assite a requisiçao e mostra as mudandças dela contecendo 
+			// ea acada mudança ele executa o console.log mostrando o estado dela 
+
+			ajax.onreadystatechange = ()=>{
+
+				console.log(ajax.readyState);
+			}
+
 			/*O send envia a solicitação*/
 
-			//ajax.send();
+			ajax.send();
 
 			// aqui eu mostro os dados requisiçao no console
 

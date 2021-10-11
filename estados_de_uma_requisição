@@ -34,10 +34,44 @@ Uma requisição feita a um servidor tem 5 estados
 
 
 
-
-
-
 3 - request received(requisição recebida)
+
+    o codigo abaixo imprime no console todos sos estados de uma requisição a cada vez que ele e alterado 
+
+     function requisitarPagina(url){
+
+			let ajax = new XMLHttpRequest();
+
+			
+
+			/*O metodo open recebe o metodo usado na resuisição e a url requisitada*/
+
+			ajax.open('GET',url);
+
+			console.log(ajax.readyState)
+
+			// essa função assite a requisiçao e mostra as mudandças dela contecendo 
+			// ea acada mudança ele executa o console.log mostrando o estado dela 
+
+			ajax.onreadystatechange = ()=>{
+
+				console.log(ajax.readyState);
+			}
+
+			/*O send envia a solicitação*/
+
+			ajax.send();
+
+			// aqui eu mostro os dados requisiçao no console
+
+			//console.log(ajax);
+
+		  }
+
+
+
+
 4 - processing request(Processando requisição)
+
 5 - request finished and is response ready(requisição finalizada)
 
