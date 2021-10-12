@@ -16,10 +16,26 @@
 
 
           	// incluindo um aruivo de loading na pagina
+          	// criando o elemento 
 
-          	let imgLoading = document.createElement('img');
-          	imgLoading.src = 'loading.gif';
-          	imgLoading.className = 'rounded mx-auto d-block '
+          	//logica para incluir elemento na pagina somente se ele não existir ainda
+
+          	if (!document.getElementById('loading')) {
+
+			     	let imgLoading = document.createElement('img');
+			        	imgLoading.src = 'loading.gif';
+			        	imgLoading.className = 'rounded mx-auto d-block '
+			        	imgLoading.id = 'loading'
+
+			          	//referenciando o elemento como filho da div conteudo anexando elemento filho
+
+			       	document.getElementById('conteudo').appendChild(imgLoading);
+
+          }
+
+
+
+
 
 
 
@@ -31,14 +47,24 @@
 
 			ajax.open('GET',url);
 
-			console.log(ajax.readyState)
+			// console.log(ajax.readyState)
 
 			// essa função assite a requisiçao e mostra as mudandças dela contecendo 
 			// ea acada mudança ele executa o console.log mostrando o estado dela 
 
 			ajax.onreadystatechange = ()=>{
 
-				console.log(ajax.readyState);
+			//o estado 4 da requisição sgnifica que deu certo e a requisição foi finalizada por isso esse status e quevai parar o loading 
+
+				if (ajax.readyState == 4){
+
+					console.log('requisição finalizada com sucesso');
+
+					// Removendo o loading depois de completar a requisição
+					document.getElementById('loading').remove();
+
+
+				}
 			}
 
 			/*O send envia a solicitação*/
@@ -85,7 +111,7 @@
 	    	<div class="row">
 		    	<div class="col-md-1"></div>
 
-		    	<div class="col-md-10">
+		    	<div class="col-md-10" id="conteudo">
 
 		    	</div>
 		    		
