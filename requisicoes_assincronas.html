@@ -13,6 +13,8 @@
            
           function requisitarPagina(url){
 
+          	document.getElementById('conteudo').innerHTML ='';
+
 
 
           	// incluindo um aruivo de loading na pagina
@@ -56,15 +58,47 @@
 
 			//o estado 4 da requisição sgnifica que deu certo e a requisição foi finalizada por isso esse status e quevai parar o loading 
 
-				if (ajax.readyState == 4){
+				if (ajax.readyState == 4 && ajax.status == 200){
 
-					console.log('requisição finalizada com sucesso');
+					
+					
+
+					//colocando na tela a reposta da requisição
+
+					document.getElementById('conteudo').innerHTML = ajax.responseText;
 
 					// Removendo o loading depois de completar a requisição
-					document.getElementById('loading').remove();
+					//document.getElementById('loading').remove();
 
 
 				}
+
+
+				if (ajax.readyState == 4 && ajax.status == 404){
+
+					
+					
+
+					document.getElementById('conteudo').innerHTML = 'requisição finalizada com sucesso, porem o conteudo está indiponivel....tente mais tarde';
+
+					// Removendo o loading depois de completar a requisição
+					//document.getElementById('loading').remove();
+
+
+				}
+
+
+
+
+
+
+
+
+
+
+
+
+
 			}
 
 			/*O send envia a solicitação*/

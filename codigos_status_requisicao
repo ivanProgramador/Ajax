@@ -1,0 +1,15 @@
+Os códigos de status das respostas HTTP indicam se uma requisição HTTP foi corretamente concluída. As respostas são agrupadas em cinco classes:
+
+Respostas de informação (100-199),
+Respostas de sucesso (200-299),
+Redirecionamentos (300-399)
+Erros do cliente (400-499)
+Erros do servidor (500-599).
+
+------------------------------------------------------------------
+Os status que mais são viatos são o 
+200 ok
+404 pagina ou recurso solicitado não existe
+--------------------------------------------------------------------
+
+site de referencia https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
