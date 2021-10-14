@@ -1,0 +1,17 @@
+Eu entendi que basicamente Ajax e so um jeito de fazer requisições http assicrona
+todo esta conceito esta basesdo na classe 
+
+
+XMLHttpRequest
+
+cria-se um objeto baseado nela 
+
+let ajax = new XMLHttpRequest();
+
+o objeto herda todos os atributos e os metodo necessarios pra fazer a requisição e e so chamar os metodos
+ou solicitar os atributos necessarios
+
+
+
+
+
