@@ -1,0 +1,36 @@
+A ideia desta aula e preencher uma pagina usando uma requisiçãop http com dados 
+presentes em arquivo xml que esta dentro do servidor. A sintaxe xml e relativamente simples
+parece um pouco com html por se3r baseada em tags tambem, os itens indispensaveis no xml 
+são a versão dele e a codigficação de caracteres no caso aqui a versão é 1.0 e a codificação e utf-8.
+------------------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8" ?>
+
+Analogo ao conceito de classes o xml tem os nós pais e nós filhos neste caso o no pai e filmes o no filho 
+e filme um no pai pode ter varios nos filhos que sao identificados por um id, e depois disso cada tag recebe o nome de um atributo e são preechidas com os dados correspondentes.
+
+<filmes>
+
+   <filme id = '1'>
+
+        <titulo>Vingadores: Guerra Infinita</titulo>
+
+        <resumo>
+        	Homem de Ferro, Thor, Hulk e os Vingadores se unem para combater seu inimigo mais poderoso, o  maligno Thanos. Em uma missão para coletar todas as seis pedras infinitas, Thanos planeja usá-las para infligir sua vontade maléfica sobre a realidade.
+        </resumo>
+
+        <genero>Aventura</genero>
+
+        <genero>Ação</genero>
+        <elenco>
+            <ator>Robert Downey Jr</ator>
+            <ator>Chris Hemsworth</ator>
+            <ator>Mark Ruffalo</ator>
+        </elenco>
+        <dataLancamento pais='Brasil'>26 de abril de 2018</dataLancamento>
+
+   </filme>
+
+</filmes>
+--------------------------------------------------------------------------------------------------------------
+
