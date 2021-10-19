@@ -34,3 +34,36 @@ e filme um no pai pode ter varios nos filhos que sao identificados por um id, e 
 </filmes>
 --------------------------------------------------------------------------------------------------------------
 
+
+function getFilmes() {
+
+            //instanciando o bjeto 
+        
+            let xmlHttp = new XMLHttpRequest();
+
+            //preeechendo os dados da reuisição afunção open precisa saber metodo e a url da reuisiçao
+
+            xmlHttp.open('GET','http://localhost/Ajax/xml/Aula_2/filmes.xml');
+
+            // a funçao abaixo diz pra o objeto oque ele vai fazer com o resultado da reuisição se ela der certo ou se ocorrer algum erro 
+
+
+            xmlHttp.onreadystatechange = ()=>{
+
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+
+                    let xmlFilmes = xmlHttp.responseText;
+                    console.log(xmlFilmes);
+                }
+
+
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 404) {
+
+                    //....
+                }
+            }
+
+            //enviando a reuisiçao 
+            xmlHttp.send();
+        }
+        
