@@ -21,7 +21,7 @@
     		let xmlHttp = new XMLHttpRequest();
 
     		//preeechendo os dados da reuisição
-    		xmlHttp.open('GET','http://localhost/Ajax/xml/Aula_2/filmes.xml');
+    		xmlHttp.open('GET','http://localhost/Ajax/xml/pratica/filmes.xml');
 
 
     		xmlHttp.onreadystatechange = ()=>{
@@ -30,7 +30,7 @@
 
     				let xmlFilmes = xmlHttp.responseText;
 
-                     console.log(xmlFilmes);
+                    // console.log(xmlFilmes);
 
 
                     //fazendo a conversão para documento no formato dom com a arvore de elementos 
@@ -43,7 +43,7 @@
 
                     domFilmes = parser.parseFromString(xmlFilmes,'text/xml');
 
-                    console.log(domFilmes);
+                   // console.log(domFilmes);
 
 
                     // covertendo para json atraves da funçao que eu refreciei no header
@@ -52,7 +52,115 @@
                     // O arquivo domFilmes que antes era feito no formato dom com tags arvore de elemento agora se torna uma notaçao json 
                     // os filmes se tornaram objeto da classe filme e os dados do filme se tornaram atributos possibilitando a manipulação por meio do js.
 
-                    console.log(JsonFilmes);
+                   //console.log(JsonFilmes);
+
+
+                    //pegando os filmes da lista atraves do for 
+                    // o for vai fazer uma busca em jsonfilmes primeiro ele busca dentro do array filmes
+                    // o filme e cada vez uqe le encontrar um filme a varivel i começa a contar 0,1,2 
+                    // então o console .log vai mostrar o filme que esta na posição correspondente a cada loop 
+
+
+                    for(let i in JsonFilmes['filmes']['filme']){
+
+                        let item = JsonFilmes['filmes']['filme'][i];
+
+                        // criando elementos html apartir do dom
+                        // a ideia e fazer uma view e preeeccher ela com os dados doa filmes
+                        // soque a cada loop ele monta a mesma view varias vezes uma para cada elemento
+
+
+                        let divRow = document.createElement('div');
+                         divRow.className = 'row mt-3 ';
+
+                        let divCol = document.createElement('div');
+                         divCol.className = 'col';
+
+                        let p1 = document.createElement('p');
+                        p1.innerHTML = '<p><strong>Titulo:</strong>' + item['titulo']['#text'];
+
+                         let p2 = document.createElement('p');
+                        p2.innerHTML = '<p><strong>Resumo:</strong> '+ item['resumo']['#text'];
+
+                        // genero é um array e não um texto entao neste caso vai ser peciso uma estrutura de reptiçao pra percorrer as 
+                        //posiçoes e retonar esse dado
+
+                        let genero = '';
+
+                        for(let g in item.genero){
+
+                            if(genero){
+
+                                genero +=', ';
+                            }
+
+                            genero += item.genero[g]['#text']
+                        }
+
+
+                        let p3 = document.createElement('p');
+                        p3.innerHTML = '<p><strong>Genero:</strong>' + genero;
+
+
+
+
+
+
+                         let elenco = '';
+
+                        for(let e in item.elenco.ator){
+
+                            if(elenco){
+
+                                elenco +=', ';
+                            }
+
+                            elenco += item.elenco.ator[e]['#text']
+                        }
+
+
+
+
+                         let p4 = document.createElement('p');
+                        p4.innerHTML = '<p><strong>Elenco:</strong>' + elenco;
+
+                        // neste caso como ele tem o atributo pais eu tive que selecionar item.dataLancamento e especifcar usando @attributes e depois informr que o atributo que eu queria e pais
+                        
+                        let p5 = document.createElement('p');
+                        p5.innerHTML = '<p><strong>Data de lançamento:</strong>' + item.dataLancamento['#text']+'(  '+ item.dataLancamento['@attributes']['pais'] +' )';
+
+                        let hr = document.createElement('hr');
+
+
+                        // mostando a estrutura o instrução appendchild tora um elento filho do outro
+                        // agora a div col fica dentro da div row e por sequencia os paragraffos ficam dentro da div 
+                        // col.
+
+
+                        divRow.appendChild(divCol);
+                        divCol.appendChild(p1);
+                        divCol.appendChild(p2);
+                        divCol.appendChild(p3);
+                        divCol.appendChild(p4);
+                        divCol.appendChild(p5);
+                        divCol.appendChild(hr);
+
+
+                        // incluindo essa estrutura dentro do container
+                        // coloquei um id lista no container selecionei  ele pelo id e inclui a div row nele 
+                        // como filha ja que ela ja tem toda a estrutura dentro dela 
+
+                        document.getElementById('lista').appendChild(divRow);
+
+
+
+
+
+
+                        }
+
+
+                           
 
 
 
@@ -94,11 +202,13 @@
 		<h3>Catálogo de filmes</h3>
 				
 	</div>
+
+
 			
 	</div>
 </nav>
 
-<div class="container">
+<div class="container" id="lista">
 
 	<div class="row">
 		<div class="col">
@@ -108,8 +218,9 @@
 			</button>
 			
 		</div>
-		
-	</div>
+
+
+
 
 
 	
